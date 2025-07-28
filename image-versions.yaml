@@ -2,4 +2,4 @@ images:
   - name: centos-stream10
     image: quay.io/centos-bootc/centos-bootc
     tag: stream10
-    digest: sha256:4752daeb52cf92cf4255eb0391d62da79f79d91bcefbbbbdd2b973840505d1dc
+    digest: sha256:83e1f1a0455dd6077e10b95b26f1bdd460e41b7391f5b7df90498cfa8144fc8e
