@@ -229,6 +229,9 @@ jobs:
       contents: read
       packages: write
       id-token: write
+    outputs:
+      IMAGE_NAME: ${{ steps.push-manifest.outputs.IMAGE_NAME }}
+      DIGEST: ${{ steps.push-manifest.outputs.DIGEST }}
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
@@ -390,3 +393,10 @@ jobs:
         uses: rsturla-homelab/actions/scan-sbom@main
         with:
           sbom-path: ${{ steps.generate-sbom.outputs.sbom-path }}
+
+  integration-tests:
+    uses: ./.github/workflows/_test.yml
+    secrets: inherit
+    needs: manifest
+    with:
+      image-ref: ${{ needs.manifest.outputs.IMAGE_NAME }}@${{ needs.manifest.outputs.DIGEST }}
