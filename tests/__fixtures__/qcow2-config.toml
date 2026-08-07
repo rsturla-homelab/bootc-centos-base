@@ -1,0 +1,4 @@
+[[customizations.user]]
+name = "ci-user"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM353kmMBTMCgelDFUesQgRfgLdXOjIchlr0DyQCtTDG ci-user@github-actions.com"
+groups = ["wheel"]

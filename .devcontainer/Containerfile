@@ -1,0 +1,11 @@
+FROM mcr.microsoft.com/devcontainers/base:ubuntu
+
+ARG GO_VERSION=1.24.2
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Install GoLang
+RUN curl -Lo /tmp/go.tar.gz https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf /tmp/go.tar.gz && \
+    rm /tmp/go.tar.gz
+
+ENV PATH="/usr/local/go/bin:${PATH}"
